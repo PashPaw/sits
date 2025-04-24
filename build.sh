@@ -19,8 +19,8 @@ punch() {
     P="media/$F.pt"
     set `./tools/punch bin/$1.bin 2>&1 > $P`
     echo noexpect >> do/ptr.do
-    echo 'expect "*" at ptr '$P'; send "\\033LP:\\r"; continue' >> do/ptr.do
-    echo 'expect "*" send "\\033Y0:'$F'\\r"' >> do/ptr.do
+    echo 'expect "*" at ptr '$P'; send "\033LP:\n\r"; continue' >> do/ptr.do
+    echo 'expect "*" send "\033Y0:'$F'\n\r"' >> do/ptr.do
     yes continue | head -$2 >> do/ptr.do
 }
 
